@@ -56,4 +56,4 @@ node server.json -f
 Special Thanks
 ==============
 
-Special thanks to [BlueFlag][https://github.com/blueflag], who wrote the initial [HipFM][https://github.com/blueflag/HipFM].  This project is a _very_ slight modification of BlueFlag's original work.
+Special thanks to [BlueFlag](https://github.com/blueflag), who wrote the initial [HipFM](https://github.com/blueflag/HipFM).  This project is a _very_ slight modification of BlueFlag's original work.
