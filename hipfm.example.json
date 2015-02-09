@@ -1,5 +1,6 @@
 {
     "hipchat": {
+        "server": "https://hipchat.example.com"
         "key": "11111111111111111111111111111111",
         "room": "Music"
     },

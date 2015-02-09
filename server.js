@@ -20,12 +20,13 @@ if(process.argv[2] == '-f') { // We're using a config file
     });
 } else {  // We're using the command line args
     if (process.argv.length < 6) {
-        console.log('Usage: node server.js ' + ' [Last.fm Api Key] [Last.fm User] [HipChat Admin/Notification Key] [Room] [Display Name]');
+        console.log('Usage: node server.js ' + ' [Last.fm Api Key] [Last.fm User] [HipChat Admin/Notification Key] [Room] [Display Name] [HipChat Server]');
         process.exit(1);
     }
 
     config = {
         "hipchat": {
+            "server": process.argv[7],
             "key": process.argv[4],
             "room": process.argv[5]
         },
@@ -150,7 +151,7 @@ function processData(data, dangerzone, userIndex) {
 function sendToHipChat(message, userIndex, color) {
     color = color || 'purple';
     message = encodeURIComponent(message);
-    var url = 'https://api.hipchat.com/v1/rooms/message?format=json&auth_token=' + config.hipchat.key + '&room_id=' + config.hipchat.room + '&from=' + config.lastfm.users[userIndex].displayName + '&color='+ color +'&message_format=html&message=' + message;
+    var url = config.hipchat.server + '/v1/rooms/message?format=json&auth_token=' + config.hipchat.key + '&room_id=' + config.hipchat.room + '&from=' + config.lastfm.users[userIndex].displayName + '&color='+ color +'&message_format=html&message=' + message;
 
     https.get(url, function(httpRes) {
         var data = '';
