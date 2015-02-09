@@ -23,7 +23,7 @@ node server.json -f
 ```json
 {
     "hipchat": {
-        "server": "https://hipchat.example.com"
+        "server": "https://hipchat.example.com",
         "key": "11111111111111111111111111111111",
         "room": "Music"
     },
